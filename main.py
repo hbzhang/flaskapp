@@ -21,7 +21,7 @@ def getImage():
     filename = 'shoot.png'
     return send_file(filename, mimetype='image/png')
 
-@app.route('/getemployee', methods=['GET'])
+@app.route('/getrisk', methods=['GET'])
 def get_employee():
 	conn = None
 	cursor = None
