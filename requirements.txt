@@ -5,3 +5,15 @@ itsdangerous
 Jinja2
 peewee
 Werkzeug
+Babel
+Click
+Flask-Babel
+Flask-MySQL
+Flask-Table
+itsdangerous
+lxml
+MarkupSafe
+Pillow
+PyMySQL
+pytz
+six
