@@ -39,7 +39,7 @@ def get_employee():
 	finally:
 		cursor.close()
 		conn.close()
-	return jsonify({'threats': [{"threat":"high"}]})
+	return jsonify({'threats': [{"gunthreat":"high"}]})
 	#return jsonify({'tasks': [make_public_task(task) for task in tasks]})
 
 @app.route('/')
