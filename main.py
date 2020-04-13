@@ -25,9 +25,14 @@ def get_employee():
 
 		cursor.execute("SELECT emp_id, emp_first_name, emp_last_name, emp_designation FROM employee")
 		result = cursor.fetchall()
-	    for row in result:
+		for row in result:
 			line = [str(row['emp_id']) + ',' + row['emp_first_name'] + ',' + row['emp_last_name'] + ',' + row[
 			'emp_designation']]
+	except Exception as e:
+		print(e)
+	finally:
+		cursor.close()
+		conn.close()
 	return jsonify({'tasks': [{"ee":"ff"}]})
 	#return jsonify({'tasks': [make_public_task(task) for task in tasks]})
 
