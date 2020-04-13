@@ -3,13 +3,8 @@ import csv
 import pymysql
 from app import app
 from db import mysql
-from flask import Flask, Response, render_template
+from flask import Flask, Response, render_template,jsonify
 
-@app.route('/')
-def download():
-	return render_template('download.html')
-
-@app.route('/getemployee', methods=['GET'])
 def make_public_task(task):
     new_task = {}
     for field in task:
@@ -19,6 +14,11 @@ def make_public_task(task):
         else:
             new_task[field] = task[field]
     return new_task
+
+@app.route('/')
+def download():
+	return render_template('download.html')
+
 
 @app.route('/getemployee', methods=['GET'])
 def get_employee():
