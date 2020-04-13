@@ -3,7 +3,7 @@ import csv
 import pymysql
 from app import app
 from db import mysql
-from flask import Flask, Response, render_template,jsonify
+from flask import send_file, Flask, Response, render_template,jsonify
 
 def make_public_task(task):
     new_task = {}
@@ -14,6 +14,12 @@ def make_public_task(task):
         else:
             new_task[field] = task[field]
     return new_task
+
+@app.route('/getimage', methods=['GET'])
+
+def getImage():
+    filename = 'shoot.png'
+    return send_file(filename, mimetype='image/png')
 
 @app.route('/getemployee', methods=['GET'])
 def get_employee():
