@@ -15,11 +15,6 @@ def make_public_task(task):
             new_task[field] = task[field]
     return new_task
 
-@app.route('/')
-def download():
-	return render_template('download.html')
-
-
 @app.route('/getemployee', methods=['GET'])
 def get_employee():
 	conn = None
@@ -31,10 +26,14 @@ def get_employee():
 		cursor.execute("SELECT emp_id, emp_first_name, emp_last_name, emp_designation FROM employee")
 		result = cursor.fetchall()
 	    for row in result:
-		line = [str(row['emp_id']) + ',' + row['emp_first_name'] + ',' + row['emp_last_name'] + ',' + row[
+			line = [str(row['emp_id']) + ',' + row['emp_first_name'] + ',' + row['emp_last_name'] + ',' + row[
 			'emp_designation']]
 	return jsonify({'tasks': [{"ee":"ff"}]})
 	#return jsonify({'tasks': [make_public_task(task) for task in tasks]})
+
+@app.route('/')
+def download():
+	return render_template('download.html')
 
 
 @app.route('/download/report/csv')
